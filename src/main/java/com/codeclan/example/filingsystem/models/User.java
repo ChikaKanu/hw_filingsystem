@@ -19,12 +19,12 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<Folder> folder;
+    @OneToMany(mappedBy = "user")
+    private List<Folder> folders;
 
     public User(String name) {
         this.name = name;
-        this.folder = new ArrayList<>();
+        this.folders = new ArrayList<>();
     }
 
     public User() {
@@ -48,14 +48,14 @@ public class User {
     }
 
     public List<Folder> getFolder() {
-        return folder;
+        return folders;
     }
 
     public void setFolder(List<Folder> folder) {
-        this.folder = folder;
+        this.folders = folder;
     }
 
     public void addFolder(Folder folder) {
-        this.folder.add(folder);
+        this.folders.add(folder);
     }
 }

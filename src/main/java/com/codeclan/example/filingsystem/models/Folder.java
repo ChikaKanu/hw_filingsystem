@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "folder")
+@Table(name = "folders")
 
 public class Folder {
 
@@ -19,12 +19,12 @@ public class Folder {
     private Long id;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "ship", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "folder")
     private List<File> files;
 
     @JsonIgnore
     @ManyToOne
-    @JoinTable(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public Folder(String title, User user) {
