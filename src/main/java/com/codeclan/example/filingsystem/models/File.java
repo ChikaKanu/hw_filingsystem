@@ -1,6 +1,7 @@
 package com.codeclan.example.filingsystem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -20,7 +21,7 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("file")
     @ManyToOne
     @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;

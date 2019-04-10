@@ -1,6 +1,7 @@
 package com.codeclan.example.filingsystem.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Folder {
     @OneToMany(mappedBy = "folder")
     private List<File> files;
 
-    @JsonIgnore
+    @JsonIgnoreProperties("folder")
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
