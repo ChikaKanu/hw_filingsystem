@@ -48,15 +48,17 @@ public class DataLoader implements ApplicationRunner {
         File file2 = new File("One upon a time", "pdf", 200, folder2);
         fileRepository.save(file1);
 
+        user1.addFolder(folder1);
+        user2.addFolder(folder2);
+        userRepository.save(user1);
+        userRepository.save(user2);
+
         folder1.addFiles(file1);
         folder2.addFiles(file2);
         folderRepository.save(folder1);
         folderRepository.save(folder2);
 
-        user1.addFolder(folder1);
-        user2.addFolder(folder2);
-        userRepository.save(user1);
-        userRepository.save(user2);
+
 
     }
 
